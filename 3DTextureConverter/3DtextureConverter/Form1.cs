@@ -46,8 +46,8 @@ namespace _3DtextureConverter
                 using (Graphics g = Graphics.FromImage(b))
                 {
 
-                    try
-                    {
+                    //try
+                    //{
                         
                         using (BinaryReader breader = new BinaryReader(File.Open(path, FileMode.Open)))
                         {
@@ -66,7 +66,7 @@ namespace _3DtextureConverter
                                     {
                                         int value = breader.ReadByte();
 
-                                        realPosX = x + (z % maxTilesHeight) * width;
+                                        realPosX = x + (z % maxTilesWidth) * width;
 
                                         int yPos;
                                         if (flipY)
@@ -99,12 +99,12 @@ namespace _3DtextureConverter
                         MessageBox.Show("Done converting " + path + ".png");
 
                     
-                    }
-                    catch (Exception)
-                    {
+                    //}
+                    //catch (Exception)
+                    //{
 
-                        MessageBox.Show("error reading content. Check that file exists and that the dimensions are correct.");
-                    }
+                    //    MessageBox.Show("error reading content. Check that file exists and that the dimensions are correct.");
+                    //}
 
                     progressBar1.Value = 0;
                     progressBar1.Update();
